@@ -1,22 +1,629 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🇯🇵 Japan Roadshow</title>
 
-    <link rel="stylesheet" href="style.css">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>東京羽田出差｜2026</title>
+
+<style>
+
+:root {
+    --milk: #E8D5B7;
+    --blue: #1E6F8C;
+    --deep-blue: #174A61;
+    --cream: #FFF8ED;
+    --text: #3E3A35;
+}
+
+
+body {
+    margin:0;
+    font-family:
+        "Noto Sans TC",
+        "Microsoft JhengHei",
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--cream),
+            #ffffff
+        );
+
+    color:var(--text);
+}
+
+
+/* 封面 */
+
+.cover {
+
+    min-height:90vh;
+
+    background:
+        linear-gradient(
+            rgba(232,213,183,0.88),
+            rgba(30,111,140,0.85)
+        );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px;
+
+    color:white;
+
+}
+
+
+.cover-box {
+
+    max-width:600px;
+
+}
+
+
+.illustration {
+
+    font-size:80px;
+
+    margin-bottom:20px;
+
+}
+
+
+.cover h1 {
+
+    font-size:42px;
+
+    margin:10px;
+
+}
+
+
+.cover h2 {
+
+    font-weight:400;
+
+    letter-spacing:2px;
+
+}
+
+
+/* 內容 */
+
+.container {
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:25px;
+
+}
+
+
+.section-title {
+
+    color:var(--deep-blue);
+
+    font-size:28px;
+
+    margin-top:40px;
+
+}
+
+
+/* 卡片 */
+
+.card {
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    margin:20px 0;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,0.08);
+
+}
+
+
+.card h3 {
+
+    color:var(--blue);
+
+    margin-top:0;
+
+}
+
+
+.info {
+
+    line-height:1.8;
+
+}
+
+
+/* 航班 */
+
+.flight {
+
+    border-left:
+        6px solid var(--blue);
+
+}
+
+
+/* 飯店 */
+
+.hotel {
+
+    border-left:
+        6px solid #C69C6D;
+
+}
+
+
+/* 接送 */
+
+.transport {
+
+    border-left:
+        6px solid #5B8C5A;
+
+}
+
+
+/* 手機 */
+
+@media(max-width:600px){
+
+    .cover h1 {
+
+        font-size:32px;
+
+    }
+
+
+    .illustration {
+
+        font-size:60px;
+
+    }
+
+
+    .card {
+
+        padding:20px;
+
+    }
+
+}
+
+
+</style>
+
 </head>
+
 
 <body>
 
-<h1>🇯🇵 Japan Roadshow</h1>
 
-<h2>Welcome Jess!</h2>
+<!-- Cover -->
 
-<p>這裡就是你的旅行手冊。</p>
+<section class="cover">
 
-<script src="script.js"></script>
+<div class="cover-box">
+
+
+<div class="illustration">
+✈️ 🧳 📘
+</div>
+
+
+<h1>
+東京羽田出差
+</h1>
+
+
+<h2>
+2026.08.17 – 2026.08.22
+</h2>
+
+
+<p>
+Business Trip Guide
+<br>
+Tokyo • Kyoto • Nagano
+</p>
+
+
+</div>
+
+</section>
+
+
+
+<div class="container">
+
+
+<h2 class="section-title">
+✈️ 航班資訊
+</h2>
+
+
+<div class="card flight">
+
+<h3>
+去程｜08/17 星期一
+</h3>
+
+
+<div class="info">
+
+(TSA) 松山機場 T1
+
+<br>
+↓
+
+<br>
+
+(HND) 羽田機場 T3
+
+<br><br>
+
+起飛：
+09:00
+
+<br>
+
+抵達：
+13:10
+
+<br>
+
+航班：
+CI0220 (V)
+
+</div>
+
+
+<hr>
+
+
+<h3>
+回程｜08/22 星期六
+</h3>
+
+
+<div class="info">
+
+(HND) 羽田機場 T3
+
+<br>
+↓
+
+<br>
+
+(TSA) 松山機場 T1
+
+<br><br>
+
+起飛：
+14:30
+
+<br>
+
+抵達：
+16:55
+
+<br>
+
+航班：
+CI0221 (Q)
+
+</div>
+
+
+</div>
+
+
+
+
+
+<h2 class="section-title">
+🏨 飯店資訊
+</h2>
+
+
+
+<div class="card hotel">
+
+<h3>
+8/17 - 8/18
+</h3>
+
+<div class="info">
+
+APA飯店〈新宿御苑前〉
+
+<br>
+
+入住：
+15:00
+
+<br>
+
+退房：
+10:00
+
+<br>
+
+早餐：
+無
+
+</div>
+
+</div>
+
+
+
+<div class="card hotel">
+
+<h3>
+8/19
+</h3>
+
+<div class="info">
+
+京都車站南京阪飯店
+
+<br>
+
+位置：
+京都 JR
+
+<br>
+
+入住：
+15:00
+
+<br>
+
+退房：
+11:00
+
+<br>
+
+早餐：
+有
+
+</div>
+
+</div>
+
+
+
+
+<div class="card hotel">
+
+<h3>
+8/20
+</h3>
+
+<div class="info">
+
+長野東急 REI 飯店
+
+<br>
+
+位置：
+長野 JR
+
+<br>
+
+入住：
+15:00
+
+<br>
+
+退房：
+10:00
+
+<br>
+
+早餐：
+無
+
+</div>
+
+</div>
+
+
+
+
+<div class="card hotel">
+
+<h3>
+8/21
+</h3>
+
+<div class="info">
+
+品川王子大飯店 N 塔
+
+<br>
+
+位置：
+品川 JR
+
+<br>
+
+入住：
+15:00
+
+<br>
+
+退房：
+11:00
+
+<br>
+
+早餐：
+有
+
+</div>
+
+</div>
+
+
+
+
+<h2 class="section-title">
+🚗 接送機資訊
+</h2>
+
+
+<div class="card transport">
+
+
+<h3>
+KKDAY 高級型 7座
+</h3>
+
+
+<div class="info">
+
+
+聯絡方式：
+
+<br>
+
+WhatsApp
+
+
+<hr>
+
+
+<b>
+去程接機
+</b>
+
+
+<br>
+
+08/17 13:10
+
+<br>
+
+HND 東京羽田國際機場 T3
+
+↓
+
+<br>
+
+APA飯店〈新宿御苑前〉
+
+
+<br><br>
+
+訂單：
+
+#26KK289830330
+
+
+
+<hr>
+
+
+
+<b>
+回程送機
+</b>
+
+
+<br>
+
+08/22 11:20
+
+<br>
+
+品川王子大飯店 N 塔
+
+↓
+
+<br>
+
+HND 東京羽田國際機場 T3
+
+
+<br><br>
+
+訂單：
+
+#26KK282630514
+
+
+</div>
+
+
+</div>
+
+
+
+
+<h2 class="section-title">
+📅 出差行程表
+</h2>
+
+
+<div class="card">
+
+
+<p>
+
+行程資料準備中...
+
+</p>
+
+
+<p>
+
+待加入：
+
+<br>
+✔ 客戶拜訪
+
+<br>
+✔ 會議時間
+
+<br>
+✔ JR交通
+
+<br>
+✔ 午餐安排
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
 
 </body>
+
 </html>
