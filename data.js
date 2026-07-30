@@ -185,7 +185,7 @@ const TRIP_DATA = {
                     { label: "自駕往信州中野" },
                     {
                         label: "Takagi",
-                        time: "10:00",
+                        time: "10:30",
                         address: "330-2 Iwafune, Nakano, Nagano 383-0041日本",
                         company: true
                     },
