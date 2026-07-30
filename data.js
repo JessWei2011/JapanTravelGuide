@@ -107,7 +107,6 @@ const TRIP_DATA = {
                     },
                     {
                         label: "APA飯店〈新宿御苑前〉",
-                        time: "15:00 - 10:00",
                         link: { type: "hotel", index: 0 }
                     }
                 ]
