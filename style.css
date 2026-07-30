@@ -1,5 +1,136 @@
-body
-{
-    font-family: Arial;
-    margin:40px;
+:root {
+    --milk: #E8D5B7;
+    --blue: #1E6F8C;
+    --deep-blue: #174A61;
+    --cream: #FFF8ED;
+    --text: #3E3A35;
+}
+
+body {
+    margin: 0;
+    font-family:
+        "Noto Sans TC",
+        "Microsoft JhengHei",
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--cream),
+            #ffffff
+        );
+
+    color: var(--text);
+}
+
+/* 封面 */
+
+.cover {
+    min-height: 90vh;
+
+    background:
+        linear-gradient(
+            rgba(232,213,183,0.88),
+            rgba(30,111,140,0.85)
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: white;
+}
+
+.cover-box {
+    max-width: 600px;
+}
+
+.illustration {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.cover h1 {
+    font-size: 42px;
+    margin: 10px;
+}
+
+.cover h2 {
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+/* 內容 */
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 25px;
+}
+
+.section-title {
+    color: var(--deep-blue);
+    font-size: 28px;
+    margin-top: 40px;
+}
+
+/* 卡片 */
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 20px 0;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    color: var(--blue);
+    margin-top: 0;
+}
+
+.info {
+    line-height: 1.8;
+}
+
+/* 航班 */
+
+.flight {
+    border-left: 6px solid var(--blue);
+}
+
+/* 飯店 */
+
+.hotel {
+    border-left: 6px solid #C69C6D;
+}
+
+/* 接送 */
+
+.transport {
+    border-left: 6px solid #5B8C5A;
+}
+
+/* 手機 */
+
+@media (max-width: 600px) {
+    .cover h1 {
+        font-size: 32px;
+    }
+
+    .illustration {
+        font-size: 60px;
+    }
+
+    .card {
+        padding: 20px;
+    }
 }
