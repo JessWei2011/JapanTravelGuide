@@ -1,10 +1,19 @@
+const NAV_ITEMS = [
+    { target: "cover", icon: "🏠", label: "首頁" },
+    { target: "flights", icon: "✈️", label: "航班" },
+    { target: "hotels", icon: "🏨", label: "飯店" },
+    { target: "transport", icon: "🚗", label: "接送" },
+    { target: "itinerary", icon: "📅", label: "行程" }
+];
+
 const TRIP_DATA = {
     cover: {
         emoji: "✈️ 🧳 📘",
         title: "東京羽田出差",
         dateRange: "2026.08.17 – 2026.08.22",
         subtitle: "Business Trip Guide",
-        route: "Tokyo • Kyoto • Nagano"
+        route: "Tokyo • Kyoto • Nagano",
+        stamp: "✦ BUSINESS TRIP · TOKYO 2026 ✦"
     },
 
     flights: [

@@ -1,3 +1,37 @@
+function renderNav(navItems) {
+    const el = document.getElementById("nav");
+
+    el.innerHTML = navItems.map((item, i) => `
+        <a href="#${item.target}" class="nav-item${i === 0 ? " active" : ""}" data-target="${item.target}">
+            <span class="nav-icon">${item.icon}</span>
+            <span class="nav-label">${item.label}</span>
+        </a>
+    `).join("");
+}
+
+function initScrollSpy(navItems) {
+    const navLinks = document.querySelectorAll(".nav-item");
+    const sections = navItems
+        .map(item => document.getElementById(item.target))
+        .filter(Boolean);
+
+    const setActive = (target) => {
+        navLinks.forEach(link => {
+            link.classList.toggle("active", link.dataset.target === target);
+        });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setActive(entry.target.id);
+            }
+        });
+    }, { rootMargin: "-45% 0px -45% 0px", threshold: 0 });
+
+    sections.forEach(section => observer.observe(section));
+}
+
 function renderCover(cover) {
     const el = document.getElementById("cover");
     el.innerHTML = `
@@ -10,6 +44,7 @@ function renderCover(cover) {
                 <br>
                 ${cover.route}
             </p>
+            <div class="stamp">${cover.stamp}</div>
         </div>
     `;
 }
@@ -116,9 +151,11 @@ function renderItinerary(itinerary) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    renderNav(NAV_ITEMS);
     renderCover(TRIP_DATA.cover);
     renderFlights(TRIP_DATA.flights);
     renderHotels(TRIP_DATA.hotels);
     renderTransport(TRIP_DATA.transport);
     renderItinerary(TRIP_DATA.itinerary);
+    initScrollSpy(NAV_ITEMS);
 });
