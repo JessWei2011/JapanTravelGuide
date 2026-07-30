@@ -40,6 +40,7 @@ const TRIP_DATA = {
             dates: "8/17 - 8/18",
             name: "APA飯店〈新宿御苑前〉",
             location: null,
+            address: "2 Chome-2-8 Shinjuku, Shinjuku City, Tokyo 160-0022日本",
             checkIn: "15:00",
             checkOut: "10:00",
             breakfast: "無"
@@ -48,6 +49,7 @@ const TRIP_DATA = {
             dates: "8/19",
             name: "京都車站南京阪飯店",
             location: "京都 JR",
+            address: "55 Higashikujo Muromachi, Minami Ward, Kyoto, 601-8001日本",
             checkIn: "15:00",
             checkOut: "11:00",
             breakfast: "有"
@@ -56,6 +58,7 @@ const TRIP_DATA = {
             dates: "8/20",
             name: "長野東急 REI 飯店",
             location: "長野 JR",
+            address: "1 Chome-28-3 Minamichitose, Nagano, 380-0823日本",
             checkIn: "15:00",
             checkOut: "10:00",
             breakfast: "無"
@@ -64,6 +67,7 @@ const TRIP_DATA = {
             dates: "8/21",
             name: "品川王子大飯店 N 塔",
             location: "品川 JR",
+            address: "4 Chome-10-30 Takanawa, Minato City, Tokyo 108-8611日本",
             checkIn: "15:00",
             checkOut: "11:00",
             breakfast: "有"

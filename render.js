@@ -49,22 +49,49 @@ function renderCover(cover) {
     `;
 }
 
+function infoItem(label, value) {
+    return `
+        <div class="info-item">
+            <span class="info-label">${label}</span>
+            <span class="info-value">${value}</span>
+        </div>
+    `;
+}
+
+function routeLine(from, to) {
+    return `
+        <div class="route-line">
+            <span>${from}</span>
+            <span class="arrow">→</span>
+            <span>${to}</span>
+        </div>
+    `;
+}
+
+function buildMapLinks(address) {
+    if (!address) return "";
+
+    const q = encodeURIComponent(address);
+
+    return `
+        <div class="map-links">
+            <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">🗺️ Google 地圖</a>
+            <a class="map-btn" href="https://maps.apple.com/?q=${q}" target="_blank" rel="noopener">📍 Apple 地圖</a>
+        </div>
+    `;
+}
+
 function renderFlights(flights) {
     const el = document.getElementById("flights");
 
     const legsHtml = flights.map((leg, i) => `
         ${i > 0 ? "<hr>" : ""}
         <h3>${leg.title}</h3>
-        <div class="info">
-            ${leg.from}
-            <br>↓<br>
-            ${leg.to}
-            <br><br>
-            起飛：${leg.depart}
-            <br>
-            抵達：${leg.arrive}
-            <br>
-            航班：${leg.flightNo}
+        ${routeLine(leg.from, leg.to)}
+        <div class="info-grid">
+            ${infoItem("起飛", leg.depart)}
+            ${infoItem("抵達", leg.arrive)}
+            ${infoItem("航班", leg.flightNo)}
         </div>
     `).join("");
 
@@ -80,16 +107,14 @@ function renderHotels(hotels) {
     const cardsHtml = hotels.map(hotel => `
         <div class="card hotel">
             <h3>${hotel.dates}</h3>
-            <div class="info">
-                ${hotel.name}
-                <br>
-                ${hotel.location ? `位置：${hotel.location}<br>` : ""}
-                入住：${hotel.checkIn}
-                <br>
-                退房：${hotel.checkOut}
-                <br>
-                早餐：${hotel.breakfast}
+            <div class="hotel-name">${hotel.name}</div>
+            <div class="info-grid">
+                ${hotel.location ? infoItem("位置", hotel.location) : ""}
+                ${infoItem("入住", hotel.checkIn)}
+                ${infoItem("退房", hotel.checkOut)}
+                ${infoItem("早餐", hotel.breakfast)}
             </div>
+            ${buildMapLinks(hotel.address)}
         </div>
     `).join("");
 
@@ -102,30 +127,24 @@ function renderHotels(hotels) {
 function renderTransport(transport) {
     const el = document.getElementById("transport");
 
-    const legsHtml = transport.legs.map((leg, i) => `
+    const legsHtml = transport.legs.map(leg => `
         <hr>
-        <b>${leg.label}</b>
-        <br>
-        ${leg.datetime}
-        <br>
-        ${leg.from}
-        ↓
-        <br>
-        ${leg.to}
-        <br><br>
-        訂單：${leg.orderNo}
+        <div class="leg-label">${leg.label}</div>
+        ${routeLine(leg.from, leg.to)}
+        <div class="info-grid">
+            ${infoItem("時間", leg.datetime)}
+            ${infoItem("訂單", leg.orderNo)}
+        </div>
     `).join("");
 
     el.innerHTML = `
         <h2 class="section-title">🚗 接送機資訊</h2>
         <div class="card transport">
             <h3>${transport.title}</h3>
-            <div class="info">
-                聯絡方式：
-                <br>
-                ${transport.contactMethod}
-                ${legsHtml}
+            <div class="info-grid">
+                ${infoItem("聯絡方式", transport.contactMethod)}
             </div>
+            ${legsHtml}
         </div>
     `;
 }
@@ -133,19 +152,16 @@ function renderTransport(transport) {
 function renderItinerary(itinerary) {
     const el = document.getElementById("itinerary");
 
-    const todoHtml = itinerary.todo
-        .map(item => `✔ ${item}`)
-        .join("<br>\n");
+    const chipsHtml = itinerary.todo
+        .map(item => `<span class="chip">✔ ${item}</span>`)
+        .join("");
 
     el.innerHTML = `
         <h2 class="section-title">📅 出差行程表</h2>
         <div class="card">
             <p>${itinerary.status}</p>
-            <p>
-                待加入：
-                <br>
-                ${todoHtml}
-            </p>
+            <p class="chip-list-label">待加入</p>
+            <div class="chip-list">${chipsHtml}</div>
         </div>
     `;
 }
