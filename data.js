@@ -11,9 +11,9 @@ const TRIP_DATA = {
         emoji: "✈️ 🧳 📘",
         title: "東京羽田出差",
         dateRange: "2026.08.17 – 2026.08.22",
-        subtitle: "Business Trip Guide",
+        subtitle: "Roadshow Guide",
         route: "Tokyo • Kyoto • Nagano",
-        stamp: "✦ BUSINESS TRIP · TOKYO 2026 ✦"
+        stamp: "✦ ROADSHOW · TOKYO 2026 ✦"
     },
 
     flights: [
@@ -96,12 +96,39 @@ const TRIP_DATA = {
     },
 
     itinerary: {
-        status: "行程資料準備中...",
-        todo: [
-            "客戶拜訪",
-            "會議時間",
-            "JR交通",
-            "午餐安排"
+        note: "其餘天數行程整理中...",
+        days: [
+            {
+                date: "8/17（一）",
+                stops: [
+                    {
+                        label: "Flight",
+                        time: "09:00 - 13:10",
+                        link: { type: "flight", index: 0 }
+                    },
+                    {
+                        label: "APA飯店〈新宿御苑前〉",
+                        time: "15:00 - 10:00",
+                        link: { type: "hotel", index: 0 }
+                    }
+                ]
+            },
+            {
+                date: "8/18（二）",
+                stops: [
+                    { label: "不退房" },
+                    { label: "上午空白無行程" },
+                    {
+                        label: "Hakuto(新宿)",
+                        time: "13:30",
+                        address: "1 Chome-1-13 Shinjuku, Shinjuku City, Tokyo 160-0022日本"
+                    },
+                    {
+                        label: "APA飯店〈新宿御苑前〉",
+                        link: { type: "hotel", index: 0 }
+                    }
+                ]
+            }
         ]
     }
 };

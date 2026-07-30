@@ -76,7 +76,6 @@ function buildMapLinks(address) {
     return `
         <div class="map-links">
             <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">🗺️ Google 地圖</a>
-            <a class="map-btn" href="https://maps.apple.com/?q=${q}" target="_blank" rel="noopener">📍 Apple 地圖</a>
         </div>
     `;
 }
@@ -86,12 +85,14 @@ function renderFlights(flights) {
 
     const legsHtml = flights.map((leg, i) => `
         ${i > 0 ? "<hr>" : ""}
-        <h3>${leg.title}</h3>
-        ${routeLine(leg.from, leg.to)}
-        <div class="info-grid">
-            ${infoItem("起飛", leg.depart)}
-            ${infoItem("抵達", leg.arrive)}
-            ${infoItem("航班", leg.flightNo)}
+        <div class="flight-leg scroll-target" id="flight-${i}">
+            <h3>${leg.title}</h3>
+            ${routeLine(leg.from, leg.to)}
+            <div class="info-grid">
+                ${infoItem("起飛", leg.depart)}
+                ${infoItem("抵達", leg.arrive)}
+                ${infoItem("航班", leg.flightNo)}
+            </div>
         </div>
     `).join("");
 
@@ -104,8 +105,8 @@ function renderFlights(flights) {
 function renderHotels(hotels) {
     const el = document.getElementById("hotels");
 
-    const cardsHtml = hotels.map(hotel => `
-        <div class="card hotel">
+    const cardsHtml = hotels.map((hotel, i) => `
+        <div class="card hotel scroll-target" id="hotel-${i}">
             <h3>${hotel.dates}</h3>
             <div class="hotel-name">${hotel.name}</div>
             <div class="info-grid">
@@ -149,21 +150,83 @@ function renderTransport(transport) {
     `;
 }
 
+function renderTimelineStep(stop) {
+    const jumpTarget = stop.link ? `${stop.link.type}-${stop.link.index}` : null;
+
+    const labelHtml = jumpTarget
+        ? `<a href="#${jumpTarget}" class="step-link" data-jump="${jumpTarget}">${stop.label}</a>`
+        : `<span>${stop.label}</span>`;
+
+    const timeHtml = stop.time
+        ? `<div class="step-time">${stop.time}</div>`
+        : "";
+
+    const mapHtml = stop.address
+        ? `<a class="step-map" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stop.address)}" target="_blank" rel="noopener">🗺️ Google 地圖</a>`
+        : "";
+
+    return `
+        <div class="step">
+            <div class="step-marker">
+                <span class="step-dot"></span>
+                <span class="step-line"></span>
+            </div>
+            <div class="step-body">
+                <div class="step-label">${labelHtml}</div>
+                ${timeHtml}
+                ${mapHtml}
+            </div>
+        </div>
+    `;
+}
+
+function renderItineraryDay(day) {
+    return `
+        <div class="card itinerary-day">
+            <h3>${day.date}</h3>
+            <div class="stepper">
+                ${day.stops.map(renderTimelineStep).join("")}
+            </div>
+        </div>
+    `;
+}
+
 function renderItinerary(itinerary) {
     const el = document.getElementById("itinerary");
 
-    const chipsHtml = itinerary.todo
-        .map(item => `<span class="chip">✔ ${item}</span>`)
-        .join("");
+    const days = itinerary.days || [];
+
+    const daysHtml = days.length
+        ? days.map(renderItineraryDay).join("")
+        : `<div class="card"><p>行程資料準備中...</p></div>`;
+
+    const noteHtml = itinerary.note
+        ? `<p class="itinerary-note">${itinerary.note}</p>`
+        : "";
 
     el.innerHTML = `
         <h2 class="section-title">📅 出差行程表</h2>
-        <div class="card">
-            <p>${itinerary.status}</p>
-            <p class="chip-list-label">待加入</p>
-            <div class="chip-list">${chipsHtml}</div>
-        </div>
+        ${daysHtml}
+        ${noteHtml}
     `;
+}
+
+function initJumpLinks() {
+    document.addEventListener("click", (e) => {
+        const link = e.target.closest("[data-jump]");
+        if (!link) return;
+
+        const target = document.getElementById(link.dataset.jump);
+        if (!target) return;
+
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        target.classList.remove("jump-highlight");
+        void target.offsetWidth;
+        target.classList.add("jump-highlight");
+        setTimeout(() => target.classList.remove("jump-highlight"), 1600);
+    });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -174,4 +237,5 @@ document.addEventListener("DOMContentLoaded", () => {
     renderTransport(TRIP_DATA.transport);
     renderItinerary(TRIP_DATA.itinerary);
     initScrollSpy(NAV_ITEMS);
+    initJumpLinks();
 });
