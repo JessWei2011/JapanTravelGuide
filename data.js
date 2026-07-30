@@ -96,7 +96,6 @@ const TRIP_DATA = {
     },
 
     itinerary: {
-        note: "其餘天數行程整理中...",
         days: [
             {
                 date: "8/17（一）",
@@ -121,11 +120,91 @@ const TRIP_DATA = {
                     {
                         label: "Hakuto(新宿)",
                         time: "13:30",
-                        address: "1 Chome-1-13 Shinjuku, Shinjuku City, Tokyo 160-0022日本"
+                        address: "1 Chome-1-13 Shinjuku, Shinjuku City, Tokyo 160-0022日本",
+                        company: true
                     },
                     {
                         label: "APA飯店〈新宿御苑前〉",
                         link: { type: "hotel", index: 0 }
+                    }
+                ]
+            },
+            {
+                date: "8/19（三）",
+                stops: [
+                    { label: "退房" },
+                    { label: "移動往新宿(Shinjuku)" },
+                    {
+                        label: "Logitec",
+                        time: "10:00",
+                        address: "1 Chome-25-1 Nishishinjuku, Shinjuku City, Tokyo 163-0604日本",
+                        company: true
+                    },
+                    { label: "移動往名古屋(Nagoya)" },
+                    {
+                        label: "Taiex",
+                        time: "15:00",
+                        address: "1 Chome-7-12 Wakatake, Ichinomiya, Aichi 491-0832日本",
+                        company: true
+                    },
+                    { label: "移動往京都(Kyoto)" },
+                    {
+                        label: "京都車站南京阪飯店",
+                        link: { type: "hotel", index: 1 }
+                    }
+                ]
+            },
+            {
+                date: "8/20（四）",
+                stops: [
+                    { label: "退房" },
+                    { label: "移動往滋賀縣(Shiga)" },
+                    {
+                        label: "NIPRO",
+                        time: "9:30",
+                        address: "61-9 Yamaderacho, Kusatsu, Shiga 525-0042日本",
+                        company: true
+                    },
+                    { label: "移動往三重縣(Mie)" },
+                    {
+                        label: "Fuji",
+                        time: "15:00",
+                        address: "1-27 Fujicho, Yokkaichi, Mie 510-0013日本",
+                        company: true
+                    },
+                    { label: "移動往長野縣(Nagano)" },
+                    {
+                        label: "長野東急 REI 飯店",
+                        link: { type: "hotel", index: 2 }
+                    }
+                ]
+            },
+            {
+                date: "8/21（五）",
+                stops: [
+                    { label: "退房" },
+                    { label: "自駕往信州中野" },
+                    {
+                        label: "Takagi",
+                        time: "10:00",
+                        address: "330-2 Iwafune, Nakano, Nagano 383-0041日本",
+                        company: true
+                    },
+                    { label: "移動往東京品川" },
+                    {
+                        label: "品川王子大飯店 N 塔",
+                        link: { type: "hotel", index: 3 }
+                    }
+                ]
+            },
+            {
+                date: "8/22（六）",
+                stops: [
+                    { label: "退房" },
+                    {
+                        label: "Flight",
+                        time: "14:30 - 16:55",
+                        link: { type: "flight", index: 1 }
                     }
                 ]
             }

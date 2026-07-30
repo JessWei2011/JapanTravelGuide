@@ -153,9 +153,14 @@ function renderTransport(transport) {
 function renderTimelineStep(stop) {
     const jumpTarget = stop.link ? `${stop.link.type}-${stop.link.index}` : null;
 
-    const labelHtml = jumpTarget
-        ? `<a href="#${jumpTarget}" class="step-link" data-jump="${jumpTarget}">${stop.label}</a>`
-        : `<span>${stop.label}</span>`;
+    let labelHtml;
+    if (jumpTarget) {
+        labelHtml = `<a href="#${jumpTarget}" class="step-link" data-jump="${jumpTarget}">${stop.label}</a>`;
+    } else if (stop.company) {
+        labelHtml = `<span class="company-badge">${stop.label}</span>`;
+    } else {
+        labelHtml = `<span>${stop.label}</span>`;
+    }
 
     const timeHtml = stop.time
         ? `<div class="step-time">${stop.time}</div>`

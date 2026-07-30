@@ -447,6 +447,19 @@ h1, h2, h3, .stamp {
     color: var(--deep-blue);
 }
 
+/* 拜訪的公司名稱：放大並用背景色凸顯 */
+.step-label .company-badge {
+    display: inline-block;
+
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--deep-blue);
+
+    background: var(--milk);
+    padding: 4px 12px;
+    border-radius: 8px;
+}
+
 .step-time {
     font-size: 13px;
     color: var(--text);
