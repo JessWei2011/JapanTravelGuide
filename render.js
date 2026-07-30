@@ -238,9 +238,9 @@ document.addEventListener("DOMContentLoaded", () => {
     renderNav(NAV_ITEMS);
     renderCover(TRIP_DATA.cover);
     renderFlights(TRIP_DATA.flights);
-    renderHotels(TRIP_DATA.hotels);
     renderTransport(TRIP_DATA.transport);
     renderItinerary(TRIP_DATA.itinerary);
+    renderHotels(TRIP_DATA.hotels);
     initScrollSpy(NAV_ITEMS);
     initJumpLinks();
 });
