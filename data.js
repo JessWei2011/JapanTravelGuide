@@ -12,7 +12,7 @@ const TRIP_DATA = {
         title: "東京羽田出差",
         dateRange: "2026.08.17 – 2026.08.22",
         subtitle: "Roadshow Guide",
-        route: "Tokyo • Kyoto • Nagano",
+        route: "Tokyo • Kyoto",
         stamp: "✦ ROADSHOW · TOKYO 2026 ✦"
     },
 
@@ -55,16 +55,7 @@ const TRIP_DATA = {
             breakfast: "有"
         },
         {
-            dates: "8/20",
-            name: "長野東急 REI 飯店",
-            location: "長野 JR",
-            address: "1 Chome-28-3 Minamichitose, Nagano, 380-0823日本",
-            checkIn: "15:00",
-            checkOut: "10:00",
-            breakfast: "無"
-        },
-        {
-            dates: "8/21",
+            dates: "8/20 - 8/21",
             name: "品川王子大飯店 N 塔",
             location: "品川 JR",
             address: "4 Chome-10-30 Takanawa, Minato City, Tokyo 108-8611日本",
@@ -171,9 +162,9 @@ const TRIP_DATA = {
                         address: "1-27 Fujicho, Yokkaichi, Mie 510-0013日本",
                         company: true
                     },
-                    { label: "移動往長野縣(Nagano)" },
+                    { label: "移動往名古屋，轉新幹線至東京品川" },
                     {
-                        label: "長野東急 REI 飯店",
+                        label: "品川王子大飯店 N 塔",
                         link: { type: "hotel", index: 2 }
                     }
                 ]
@@ -181,18 +172,18 @@ const TRIP_DATA = {
             {
                 date: "8/21（五）",
                 stops: [
-                    { label: "退房" },
-                    { label: "自駕往信州中野" },
+                    { label: "不退房" },
+                    { label: "Uber 前往台場" },
                     {
-                        label: "Takagi",
+                        label: "TAKAGI SEIKO Tokyo Lab.",
                         time: "10:30",
-                        address: "330-2 Iwafune, Nakano, Nagano 383-0041日本",
+                        address: "TIRI Headquarters Lab Room 303, 2-4-10 Aomi, Koto City, Tokyo 135-0064日本",
                         company: true
                     },
-                    { label: "移動往東京品川" },
+                    { label: "Uber 返回品川" },
                     {
                         label: "品川王子大飯店 N 塔",
-                        link: { type: "hotel", index: 3 }
+                        link: { type: "hotel", index: 2 }
                     }
                 ]
             },
