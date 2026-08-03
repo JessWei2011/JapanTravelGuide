@@ -176,7 +176,7 @@ const TRIP_DATA = {
                     { label: "Uber 前往台場" },
                     {
                         label: "TAKAGI SEIKO Tokyo Lab.（Room 303）",
-                        time: "10:30",
+                        time: "13:30",
                         address: "TIRI Headquarters, 2-4-10 Aomi, Koto City, Tokyo 135-0064日本",
                         company: true
                     },
